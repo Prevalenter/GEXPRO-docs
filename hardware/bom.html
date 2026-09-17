@@ -1,0 +1,579 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+        <link rel="prefetch" href="../_static/gx16.png" as="image">
+
+        <title>Hardware Bill of Materials - GEXPRO</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+
+      }
+    }
+  }
+  /* Display the sidebar logo at half its intrinsic 105x148 size. */
+  .sidebar-logo {
+    width: 128px;
+  }
+  .article-container {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif;
+  }
+  .notice {
+    margin: 1.25rem 0;
+    padding: 0.75rem 1rem;
+    border-left: 3px solid var(--color-brand-primary, #2563eb);
+    border-radius: 0 4px 4px 0;
+    background: var(--color-background-secondary, #f5f5f5);
+  }
+  .notice p {
+    margin: 0;
+  }
+  /* Give the bill of materials the full content width on wide screens. */
+  @media (min-width: 68em) {
+    .content {
+      width: auto;
+      flex: 1 1 auto;
+      min-width: 0;
+      max-width: 100em;
+    }
+  }
+  /* Bill of materials table. */
+  .bom-scroll {
+    overflow-x: auto;
+    margin: 1rem 0 0.75rem;
+  }
+  table.bom {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    font-size: var(--font-size--small--2, 0.8125rem);
+    border-radius: 0.2rem;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.05), 0 0 0.0625rem rgba(0, 0, 0, 0.1);
+  }
+  table.bom th,
+  table.bom td {
+    border-bottom: 1px solid var(--color-table-border, #eeebee);
+    padding: 0.35rem 0.5rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  table.bom thead th {
+    background: var(--color-table-header-background, #f8f9fb);
+    border-bottom: 1px solid var(--color-foreground-border, #878787);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  table.bom tbody tr:last-child td {
+    border-bottom: none;
+  }
+  table.bom .num {
+    text-align: right;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  table.bom .center {
+    text-align: center;
+  }
+  table.bom .muted {
+    color: var(--color-foreground-muted, #6b6f76);
+  }
+  table.bom td.src,
+  table.bom td:nth-child(9) {
+    white-space: nowrap;
+  }
+  table.bom td.src a {
+    text-decoration: none;
+    border-bottom: 1px dotted var(--color-link-underline, #eeebee);
+  }
+  table.bom td.src a:hover {
+    text-decoration: none;
+    border-bottom-color: var(--color-link--hover, #0a4bff);
+  }
+  table.bom tbody tr.group-start td {
+    border-top: 2px solid var(--color-foreground-border, #878787);
+  }
+  table.bom tfoot td {
+    background: var(--color-background-secondary, #f8f9fb);
+    border-top: 1px solid var(--color-foreground-border, #878787);
+    font-weight: 600;
+  }
+  table.bom tfoot tr:first-child td {
+    border-top: 2px solid var(--color-foreground-border, #878787);
+  }
+  table.bom tfoot td.plain {
+    background: transparent;
+    border-top: none;
+    font-weight: 400;
+  }
+  table.bom caption {
+    caption-side: bottom;
+    color: var(--color-foreground-secondary, #5a5c63);
+    font-size: var(--font-size--small--2, 0.8125rem);
+    padding-top: 0.5rem;
+    text-align: left;
+  }
+</style></head>
+  <body>
+
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">GEXPRO</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../_static/gx16.png" alt="Logo"/>
+  </div>
+
+  <span class="sidebar-brand-text">GEXPRO</span>
+
+</a><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="#">Getting Started</a><input aria-label="Toggle navigation of Getting Started" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="#">PCB Assembly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">3D Printing Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">Flash the Firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">Make It Move</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="#">Hardware</a><input checked aria-label="Toggle navigation of Hardware" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="#">Circuit Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mechanical-design.html">Mechanical Design</a></li>
+<li class="toctree-l2 current-page"><a class="reference internal" href="bom.html">Bill of Materials</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#">Software</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="hardware-bom">
+<h1>Hardware Bill of Materials<a class="headerlink" href="#hardware-bom" title="Link to this heading">¶</a></h1>
+<div class="notice">
+<p>This bill of materials is being verified item by item. Rows whose unit price or source is marked &mdash; are still being confirmed, and the table will be updated as parts are ordered.</p>
+</div>
+<p>The table lists the parts required to build one GX16 dexterous hand and one EX16 exoskeleton glove. Quantities are per device and follow the actuation scheme: 15 finger joints plus one palm lateral-swing joint for GX16, and four finger modules with four joints each for EX16.</p>
+<p>Reference prices are manufacturer list prices in US dollars, excluding tax. Values follow the paper appendix, except for the controller, power supply, U2D2 and hub rows, which carry current store prices. The Source column links to the store page for the servo, controller and electronics parts; commodity items are marked as local supplier.</p>
+
+<h2>Bill of materials<a class="headerlink" href="#bill-of-materials" title="Link to this heading">¶</a></h2>
+<div class="bom-scroll">
+<table class="bom">
+<caption>Quantities are per device. Unit price and subtotal refer to a single GX16 hand or EX16 glove; the system rows cover the combined setup.</caption>
+<thead>
+<tr>
+<th>No.</th>
+<th>Device</th>
+<th>Category</th>
+<th>Component</th>
+<th>Model / key specification</th>
+<th class="num">Qty</th>
+<th class="num">Unit&nbsp;(USD)</th>
+<th class="num">Subtotal&nbsp;(USD)</th>
+<th>Source</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="group-start">
+<td class="num">1</td><td>GX16</td><td>Actuator</td><td>Dynamixel XL330-M288-T</td>
+<td>Finger joint servo, 288:1 gear reduction, integrated absolute magnetic encoder</td>
+<td class="num">15</td><td class="num">30</td><td class="num">450</td><td class="src"><a href="https://robotis.us/products/dynamixel-xl330-m288-t">ROBOTIS</a></td>
+<td>15 independently actuated finger joints. One spare recommended.</td>
+</tr>
+<tr>
+<td class="num">2</td><td>GX16</td><td>Actuator</td><td>Dynamixel XC330-M288-T</td>
+<td>Palm lateral-swing servo, metal gears, higher output torque</td>
+<td class="num">1</td><td class="num">110</td><td class="num">110</td><td class="src"><a href="https://robotis.us/products/dynamixel-xc330-m288-t">ROBOTIS</a></td>
+<td>Carries the combined palm and four-finger structure.</td>
+</tr>
+<tr>
+<td class="num">3</td><td>GX16</td><td>Driver</td><td>OpenRB-150 controller board</td>
+<td>Dynamixel controller with on-board power and UART</td>
+<td class="num">1</td><td class="num">30</td><td class="num">30</td><td class="src"><a href="https://robotis.us/products/openrb-150">ROBOTIS</a></td>
+<td></td>
+</tr>
+<tr>
+<td class="num">4</td><td>GX16</td><td>Electronics</td><td>12&nbsp;V DC power supply</td>
+<td>Output current to be confirmed against servo count and stall current</td>
+<td class="num">1</td><td class="num">24.61</td><td class="num">24.61</td><td class="src"><a href="https://robotis.us/products/smps-12v-5a-ps-10-us-110v">ROBOTIS</a></td>
+<td>SMPS 12V 5A PS-10. The appendix priced it with the U2D2, hub and cabling as one 30&nbsp;USD set.</td>
+</tr>
+<tr>
+<td class="num">5</td><td>GX16</td><td>Electronics</td><td>U2D2 communication module</td>
+<td>USB&ndash;Dynamixel interface for the host computer</td>
+<td class="num">1</td><td class="num">36.92</td><td class="num">36.92</td><td class="src"><a href="https://robotis.us/products/u2d2">ROBOTIS</a></td>
+<td>Appendix: priced with the supply, hub and cabling as one 30&nbsp;USD set.</td>
+</tr>
+<tr>
+<td class="num">6</td><td>GX16</td><td>Electronics</td><td>Servo hub / distribution board</td>
+<td>3-pin distribution for daisy-chained servos</td>
+<td class="num">1</td><td class="num">21.85</td><td class="num">21.85</td><td class="src"><a href="https://robotis.us/products/u2d2-power-hub-board-set">ROBOTIS</a></td>
+<td>U2D2 Power Hub Board Set; the U2D2 itself is not included. Appendix: same 30&nbsp;USD set.</td>
+</tr>
+<tr>
+<td class="num">7</td><td>GX16</td><td>Cabling</td><td>USB cable (USB-C / micro-USB)</td>
+<td>Host connection for the controller board</td>
+<td class="num">1</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
+<td>Same 30&nbsp;USD electronics set.</td>
+</tr>
+<tr>
+<td class="num">8</td><td>GX16</td><td>Structural</td><td>3D-printed structural parts</td>
+<td>Motor mounts, joint supports, phalanx connectors, palm structure</td>
+<td class="num">1 set</td><td class="num">40</td><td class="num">40</td><td class="src"><a href="mechanical-design.html">In-house</a></td>
+<td>Printed in-house from engineering filament; cost given for the filament. CAD files are on the <a href="mechanical-design.html">mechanical design</a> page.</td>
+</tr>
+<tr>
+<td class="num">9</td><td>GX16</td><td>Hardware</td><td>Bearings</td>
+<td>Joint-support bearings, type per the mechanical drawings</td>
+<td class="num">1 set</td><td class="num">20</td><td class="num">20</td><td class="muted">Local supplier</td>
+<td>Priced as the 20&nbsp;USD hardware set in the appendix.</td>
+</tr>
+<tr>
+<td class="num">10</td><td>GX16</td><td>Hardware</td><td>Hex socket screw kit</td>
+<td>M2 / M2.5 and other common sizes</td>
+<td class="num">1 set</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
+<td>Same 20&nbsp;USD hardware set. The M2 bolts for the horn and frame are supplied with each servo.</td>
+</tr>
+<tr>
+<td class="num">11</td><td>GX16</td><td>Hardware</td><td>Heat-set inserts</td>
+<td>M2 / M2.5 threaded inserts for the printed parts</td>
+<td class="num">1 set</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
+<td>Same 20&nbsp;USD hardware set.</td>
+</tr>
+<tr>
+<td class="num">12</td><td>GX16</td><td>Hardware</td><td>Return springs</td>
+<td>Finger return springs</td>
+<td class="num">1 set</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
+<td>Same 20&nbsp;USD hardware set.</td>
+</tr>
+<tr class="group-start">
+<td class="num">13</td><td>EX16</td><td>Actuator</td><td>Dynamixel XL330-M077-T</td>
+<td>Finger joint servo, 77:1 gear reduction, integrated absolute magnetic encoder</td>
+<td class="num">16</td><td class="num">30</td><td class="num">480</td><td class="src"><a href="https://robotis.us/products/dynamixel-xl330-m077-t">ROBOTIS</a></td>
+<td>Low friction so that the operator can back-drive the exoskeleton. One spare recommended.</td>
+</tr>
+<tr>
+<td class="num">14</td><td>EX16</td><td>Driver</td><td>OpenRB-150 controller board</td>
+<td>Dynamixel controller with on-board power and UART</td>
+<td class="num">1</td><td class="num">30</td><td class="num">30</td><td class="src"><a href="https://robotis.us/products/openrb-150">ROBOTIS</a></td>
+<td></td>
+</tr>
+<tr>
+<td class="num">15</td><td>EX16</td><td>Electronics</td><td>12&nbsp;V DC power supply</td>
+<td>Output current to be confirmed against servo count and stall current</td>
+<td class="num">1</td><td class="num">24.61</td><td class="num">24.61</td><td class="src"><a href="https://robotis.us/products/smps-12v-5a-ps-10-us-110v">ROBOTIS</a></td>
+<td>SMPS 12V 5A PS-10. The appendix priced it with the U2D2, hub and cabling as one 30&nbsp;USD set.</td>
+</tr>
+<tr>
+<td class="num">16</td><td>EX16</td><td>Electronics</td><td>U2D2 communication module</td>
+<td>USB&ndash;Dynamixel interface for the host computer</td>
+<td class="num">1</td><td class="num">36.92</td><td class="num">36.92</td><td class="src"><a href="https://robotis.us/products/u2d2">ROBOTIS</a></td>
+<td>Appendix: priced with the supply, hub and cabling as one 30&nbsp;USD set.</td>
+</tr>
+<tr>
+<td class="num">17</td><td>EX16</td><td>Electronics</td><td>Servo hub / distribution board</td>
+<td>3-pin distribution for daisy-chained servos</td>
+<td class="num">1</td><td class="num">21.85</td><td class="num">21.85</td><td class="src"><a href="https://robotis.us/products/u2d2-power-hub-board-set">ROBOTIS</a></td>
+<td>U2D2 Power Hub Board Set; the U2D2 itself is not included. Appendix: same 30&nbsp;USD set.</td>
+</tr>
+<tr>
+<td class="num">18</td><td>EX16</td><td>Cabling</td><td>USB cable (USB-C / micro-USB)</td>
+<td>Host connection for the controller board</td>
+<td class="num">1</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
+<td>Same 30&nbsp;USD electronics set.</td>
+</tr>
+<tr>
+<td class="num">19</td><td>EX16</td><td>Structural</td><td>3D-printed structural parts</td>
+<td>Palm frame, finger sleeves, linkages, distal connection structure</td>
+<td class="num">1 set</td><td class="num">40</td><td class="num">40</td><td class="src"><a href="mechanical-design.html">In-house</a></td>
+<td>Printed in-house from engineering filament; cost given for the filament. CAD files are on the <a href="mechanical-design.html">mechanical design</a> page.</td>
+</tr>
+<tr>
+<td class="num">20</td><td>EX16</td><td>Hardware</td><td>Bearings</td>
+<td>Exoskeleton joint bearings, type per the mechanical drawings</td>
+<td class="num">1 set</td><td class="num">20</td><td class="num">20</td><td class="muted">Local supplier</td>
+<td>Priced as the 20&nbsp;USD hardware set in the appendix.</td>
+</tr>
+<tr>
+<td class="num">21</td><td>EX16</td><td>Hardware</td><td>Screws and heat-set inserts</td>
+<td>M2 / M2.5 fasteners for the printed parts</td>
+<td class="num">1 set</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
+<td>Same 20&nbsp;USD hardware set.</td>
+</tr>
+<tr>
+<td class="num">22</td><td>EX16</td><td>Consumable</td><td>Wearing straps / hook-and-loop</td>
+<td>Palm frame wearing support</td>
+<td class="num">1 set</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
+<td>Same 20&nbsp;USD hardware set.</td>
+</tr>
+<tr class="group-start">
+<td class="num">23</td><td>System</td><td>Electronics</td><td>USB hub</td>
+<td>Connects both controller boards to a single host</td>
+<td class="num">1</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
+<td>Model to be selected.</td>
+</tr>
+<tr>
+<td class="num">24</td><td>System</td><td>Tools</td><td>Assembly tools and consumables</td>
+<td>Screwdrivers, heat gun, cable ties, tape</td>
+<td class="num">1 set</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
+<td>Not required if the lab already has these tools.</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="5">GX16 reference subtotal</td>
+<td class="num">16 actuators</td>
+<td class="num"></td>
+<td class="num">733.38</td>
+<td colspan="2"></td>
+</tr>
+<tr>
+<td colspan="5">EX16 reference subtotal</td>
+<td class="num">16 actuators</td>
+<td class="num"></td>
+<td class="num">653.38</td>
+<td colspan="2"></td>
+</tr>
+<tr>
+<td colspan="5">Complete hand&ndash;glove system</td>
+<td class="num">32 actuators</td>
+<td class="num"></td>
+<td class="num">1,386.76</td>
+<td colspan="2"></td>
+</tr>
+<tr>
+<td colspan="10" class="plain muted">The controller, power supply, U2D2 and hub rows carry current store prices; the appendix lists those items as one 30&nbsp;USD electronics set per device, so these subtotals are above the appendix figures. Cables are not listed, because every servo ships with one. Fasteners, bearings, inserts and springs are still priced as one 20&nbsp;USD set per device, and rows marked &mdash; are counted inside their set.</td>
+</tr>
+</tfoot>
+</table>
+</div>
+
+<h2>Where to buy<a class="headerlink" href="#where-to-buy" title="Link to this heading">¶</a></h2>
+<ul>
+<li><a href="https://robotis.us/">ROBOTIS</a> is the manufacturer of the Dynamixel actuators, the OpenRB-150 controller, the U2D2 interface and the X3P cables; the Source column links to the corresponding store page. Regional distributors stock the same parts.</li>
+<li>Each XL330 and XC330 unit ships with one Robot Cable-X3P 180&nbsp;mm and the M2 bolts for the horn and frame, so the servo count already covers most of the cabling and small fasteners.</li>
+<li>The 12&nbsp;V supply is a free-voltage unit (100&ndash;260&nbsp;V AC); the AC cord type depends on the region.</li>
+<li>Bearings, screws, heat-set inserts, springs, straps and filament are standard hardware items and are best bought from a local distributor, where the exact type can be matched to the mechanical drawings.</li>
+<li>Store prices are current selling prices. The controller, power supply, U2D2 and hub rows use store prices in this table; the remaining reference values follow the paper appendix.</li>
+</ul>
+
+<h2>Quantity notes<a class="headerlink" href="#quantity-notes" title="Link to this heading">¶</a></h2>
+<ul>
+<li>GX16 uses 15&nbsp;XL330-M288-T servos at the finger joints and one metal-geared XC330-M288-T at the palm lateral-swing joint, which carries the additional torque of moving the palm and all four fingers.</li>
+<li>EX16 uses 16&nbsp;XL330-M077-T servos, four per finger module. The lower reduction ratio keeps transmission friction and back-driving resistance low while the operator moves their fingers.</li>
+<li>A complete hand&ndash;glove system therefore uses 32&nbsp;actuators: 15&nbsp;XL330-M288-T, one XC330-M288-T and 16&nbsp;XL330-M077-T. One spare of each of the two XL330 types brings the order to 34&nbsp;actuators.</li>
+<li>No separate cables are listed: every XL330 and XC330 ships with one Robot Cable-X3P 180&nbsp;mm, and the power hub board set adds a 100&nbsp;mm X3P and X4P cable.</li>
+</ul>
+
+<h2>Cost summary<a class="headerlink" href="#cost-summary" title="Link to this heading">¶</a></h2>
+<div class="bom-scroll">
+<table class="bom">
+<thead>
+<tr><th>Device</th><th class="num">Parts cost (USD)</th><th>Scope</th></tr>
+</thead>
+<tbody>
+<tr><td>GX16 dexterous hand</td><td class="num">733.38</td><td>16 actuators, controller, electronics, printed parts, hardware</td></tr>
+<tr><td>EX16 exoskeleton glove</td><td class="num">653.38</td><td>16 actuators, controller, electronics, printed parts, hardware</td></tr>
+</tbody>
+<tfoot>
+<tr><td>Complete hand&ndash;glove system</td><td class="num">1,386.76</td><td>Parts only, excluding tax and shipping</td></tr>
+</tfoot>
+</table>
+</div>
+</section>
+
+        </article>
+      </div>
+      <footer>
+
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026, GEXPRO
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+
+          </div>
+          <div class="right-details">
+
+          </div>
+        </div>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+
+
+
+
+    </aside>
+  </div>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    </body>
+</html>

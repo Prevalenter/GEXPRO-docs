@@ -272,9 +272,9 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="#">Hardware</a><input checked aria-label="Toggle navigation of Hardware" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="#">Circuit Design</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mechanical-design.html">Mechanical Design</a></li>
 <li class="toctree-l2 current-page"><a class="reference internal" href="bom.html">Bill of Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mechanical-design.html">Mechanical File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">Circuit File</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="#">Assemble Tutorials</a><input aria-label="Toggle navigation of Assemble Tutorials" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -318,12 +318,12 @@
 <p>This bill of materials is being verified item by item. Rows whose unit price or source is marked &mdash; are still being confirmed, and the table will be updated as parts are ordered.</p>
 </div>
 <p>The table lists the parts required to build one GX16 dexterous hand and one EX16 exoskeleton glove. Quantities are per device and follow the actuation scheme: 15 finger joints plus one palm lateral-swing joint for GX16, and four finger modules with four joints each for EX16.</p>
-<p>Reference prices are manufacturer list prices in US dollars, excluding tax. Values follow the paper appendix, except for the controller, power supply, U2D2 and hub rows, which carry current store prices. The Source column links to the store page for the servo, controller and electronics parts; commodity items are marked as local supplier.</p>
+<p>Reference prices are manufacturer list prices in US dollars, excluding tax, and are rounded to the nearest whole US dollar. Values follow the paper appendix, except for the controller, power supply, U2D2 and servo hub rows, which carry current store prices. The Source column links to the store page for the servo, controller and electronics parts; commodity items are marked as local supplier.</p>
 
 <h2>Bill of materials<a class="headerlink" href="#bill-of-materials" title="Link to this heading">¶</a></h2>
 <div class="bom-scroll">
 <table class="bom">
-<caption>Quantities are per device. Unit price and subtotal refer to a single GX16 hand or EX16 glove; the system rows cover the combined setup.</caption>
+<caption>Quantities are per device. Unit price and subtotal refer to a single GX16 hand or EX16 glove; the totals rows cover the combined setup.</caption>
 <thead>
 <tr>
 <th>No.</th>
@@ -360,128 +360,80 @@
 <tr>
 <td class="num">4</td><td>GX16</td><td>Electronics</td><td>12&nbsp;V DC power supply</td>
 <td>Output current to be confirmed against servo count and stall current</td>
-<td class="num">1</td><td class="num">24.61</td><td class="num">24.61</td><td class="src"><a href="https://robotis.us/products/smps-12v-5a-ps-10-us-110v">ROBOTIS</a></td>
+<td class="num">1</td><td class="num">25</td><td class="num">25</td><td class="src"><a href="https://robotis.us/products/smps-12v-5a-ps-10-us-110v">ROBOTIS</a></td>
 <td>SMPS 12V 5A PS-10. The appendix priced it with the U2D2, hub and cabling as one 30&nbsp;USD set.</td>
 </tr>
 <tr>
 <td class="num">5</td><td>GX16</td><td>Electronics</td><td>U2D2 communication module</td>
 <td>USB&ndash;Dynamixel interface for the host computer</td>
-<td class="num">1</td><td class="num">36.92</td><td class="num">36.92</td><td class="src"><a href="https://robotis.us/products/u2d2">ROBOTIS</a></td>
+<td class="num">1</td><td class="num">37</td><td class="num">37</td><td class="src"><a href="https://robotis.us/products/u2d2">ROBOTIS</a></td>
 <td>Appendix: priced with the supply, hub and cabling as one 30&nbsp;USD set.</td>
 </tr>
 <tr>
 <td class="num">6</td><td>GX16</td><td>Electronics</td><td>Servo hub / distribution board</td>
 <td>3-pin distribution for daisy-chained servos</td>
-<td class="num">1</td><td class="num">21.85</td><td class="num">21.85</td><td class="src"><a href="https://robotis.us/products/u2d2-power-hub-board-set">ROBOTIS</a></td>
+<td class="num">1</td><td class="num">22</td><td class="num">22</td><td class="src"><a href="https://robotis.us/products/u2d2-power-hub-board-set">ROBOTIS</a></td>
 <td>U2D2 Power Hub Board Set; the U2D2 itself is not included. Appendix: same 30&nbsp;USD set.</td>
 </tr>
 <tr>
-<td class="num">7</td><td>GX16</td><td>Cabling</td><td>USB cable (USB-C / micro-USB)</td>
-<td>Host connection for the controller board</td>
-<td class="num">1</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
-<td>Same 30&nbsp;USD electronics set.</td>
-</tr>
-<tr>
-<td class="num">8</td><td>GX16</td><td>Structural</td><td>3D-printed structural parts</td>
+<td class="num">7</td><td>GX16</td><td>Structural</td><td>3D-printed structural parts</td>
 <td>Motor mounts, joint supports, phalanx connectors, palm structure</td>
 <td class="num">1 set</td><td class="num">40</td><td class="num">40</td><td class="src"><a href="mechanical-design.html">In-house</a></td>
-<td>Printed in-house from engineering filament; cost given for the filament. CAD files are on the <a href="mechanical-design.html">mechanical design</a> page.</td>
+<td>Printed in-house from engineering filament; cost given for the filament. A Bambu Lab FDM printer is recommended. CAD files are on the <a href="mechanical-design.html">mechanical file</a> page.</td>
 </tr>
 <tr>
-<td class="num">9</td><td>GX16</td><td>Hardware</td><td>Bearings</td>
-<td>Joint-support bearings, type per the mechanical drawings</td>
-<td class="num">1 set</td><td class="num">20</td><td class="num">20</td><td class="muted">Local supplier</td>
-<td>Priced as the 20&nbsp;USD hardware set in the appendix.</td>
-</tr>
-<tr>
-<td class="num">10</td><td>GX16</td><td>Hardware</td><td>Hex socket screw kit</td>
+<td class="num">8</td><td>GX16</td><td>Hardware</td><td>Hex socket screw kit</td>
 <td>M2 / M2.5 and other common sizes</td>
 <td class="num">1 set</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
-<td>Same 20&nbsp;USD hardware set. The M2 bolts for the horn and frame are supplied with each servo.</td>
-</tr>
-<tr>
-<td class="num">11</td><td>GX16</td><td>Hardware</td><td>Heat-set inserts</td>
-<td>M2 / M2.5 threaded inserts for the printed parts</td>
-<td class="num">1 set</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
-<td>Same 20&nbsp;USD hardware set.</td>
-</tr>
-<tr>
-<td class="num">12</td><td>GX16</td><td>Hardware</td><td>Return springs</td>
-<td>Finger return springs</td>
-<td class="num">1 set</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
-<td>Same 20&nbsp;USD hardware set.</td>
+<td>Standard fasteners bought locally and not counted in the subtotal. The M2 bolts for the horn and frame are supplied with each servo.</td>
 </tr>
 <tr class="group-start">
-<td class="num">13</td><td>EX16</td><td>Actuator</td><td>Dynamixel XL330-M077-T</td>
+<td class="num">9</td><td>EX16</td><td>Actuator</td><td>Dynamixel XL330-M077-T</td>
 <td>Finger joint servo, 77:1 gear reduction, integrated absolute magnetic encoder</td>
 <td class="num">16</td><td class="num">30</td><td class="num">480</td><td class="src"><a href="https://robotis.us/products/dynamixel-xl330-m077-t">ROBOTIS</a></td>
 <td>Low friction so that the operator can back-drive the exoskeleton. One spare recommended.</td>
 </tr>
 <tr>
-<td class="num">14</td><td>EX16</td><td>Driver</td><td>OpenRB-150 controller board</td>
+<td class="num">10</td><td>EX16</td><td>Driver</td><td>OpenRB-150 controller board</td>
 <td>Dynamixel controller with on-board power and UART</td>
 <td class="num">1</td><td class="num">30</td><td class="num">30</td><td class="src"><a href="https://robotis.us/products/openrb-150">ROBOTIS</a></td>
 <td></td>
 </tr>
 <tr>
-<td class="num">15</td><td>EX16</td><td>Electronics</td><td>12&nbsp;V DC power supply</td>
+<td class="num">11</td><td>EX16</td><td>Electronics</td><td>12&nbsp;V DC power supply</td>
 <td>Output current to be confirmed against servo count and stall current</td>
-<td class="num">1</td><td class="num">24.61</td><td class="num">24.61</td><td class="src"><a href="https://robotis.us/products/smps-12v-5a-ps-10-us-110v">ROBOTIS</a></td>
+<td class="num">1</td><td class="num">25</td><td class="num">25</td><td class="src"><a href="https://robotis.us/products/smps-12v-5a-ps-10-us-110v">ROBOTIS</a></td>
 <td>SMPS 12V 5A PS-10. The appendix priced it with the U2D2, hub and cabling as one 30&nbsp;USD set.</td>
 </tr>
 <tr>
-<td class="num">16</td><td>EX16</td><td>Electronics</td><td>U2D2 communication module</td>
+<td class="num">12</td><td>EX16</td><td>Electronics</td><td>U2D2 communication module</td>
 <td>USB&ndash;Dynamixel interface for the host computer</td>
-<td class="num">1</td><td class="num">36.92</td><td class="num">36.92</td><td class="src"><a href="https://robotis.us/products/u2d2">ROBOTIS</a></td>
+<td class="num">1</td><td class="num">37</td><td class="num">37</td><td class="src"><a href="https://robotis.us/products/u2d2">ROBOTIS</a></td>
 <td>Appendix: priced with the supply, hub and cabling as one 30&nbsp;USD set.</td>
 </tr>
 <tr>
-<td class="num">17</td><td>EX16</td><td>Electronics</td><td>Servo hub / distribution board</td>
+<td class="num">13</td><td>EX16</td><td>Electronics</td><td>Servo hub / distribution board</td>
 <td>3-pin distribution for daisy-chained servos</td>
-<td class="num">1</td><td class="num">21.85</td><td class="num">21.85</td><td class="src"><a href="https://robotis.us/products/u2d2-power-hub-board-set">ROBOTIS</a></td>
+<td class="num">1</td><td class="num">22</td><td class="num">22</td><td class="src"><a href="https://robotis.us/products/u2d2-power-hub-board-set">ROBOTIS</a></td>
 <td>U2D2 Power Hub Board Set; the U2D2 itself is not included. Appendix: same 30&nbsp;USD set.</td>
 </tr>
 <tr>
-<td class="num">18</td><td>EX16</td><td>Cabling</td><td>USB cable (USB-C / micro-USB)</td>
-<td>Host connection for the controller board</td>
-<td class="num">1</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
-<td>Same 30&nbsp;USD electronics set.</td>
-</tr>
-<tr>
-<td class="num">19</td><td>EX16</td><td>Structural</td><td>3D-printed structural parts</td>
+<td class="num">14</td><td>EX16</td><td>Structural</td><td>3D-printed structural parts</td>
 <td>Palm frame, finger sleeves, linkages, distal connection structure</td>
 <td class="num">1 set</td><td class="num">40</td><td class="num">40</td><td class="src"><a href="mechanical-design.html">In-house</a></td>
-<td>Printed in-house from engineering filament; cost given for the filament. CAD files are on the <a href="mechanical-design.html">mechanical design</a> page.</td>
+<td>Printed in-house from engineering filament; cost given for the filament. A Bambu Lab FDM printer is recommended. CAD files are on the <a href="mechanical-design.html">mechanical file</a> page.</td>
 </tr>
 <tr>
-<td class="num">20</td><td>EX16</td><td>Hardware</td><td>Bearings</td>
-<td>Exoskeleton joint bearings, type per the mechanical drawings</td>
-<td class="num">1 set</td><td class="num">20</td><td class="num">20</td><td class="muted">Local supplier</td>
-<td>Priced as the 20&nbsp;USD hardware set in the appendix.</td>
-</tr>
-<tr>
-<td class="num">21</td><td>EX16</td><td>Hardware</td><td>Screws and heat-set inserts</td>
+<td class="num">15</td><td>EX16</td><td>Hardware</td><td>Hex socket screw kit</td>
 <td>M2 / M2.5 fasteners for the printed parts</td>
 <td class="num">1 set</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
-<td>Same 20&nbsp;USD hardware set.</td>
+<td>Standard fasteners bought locally and not counted in the subtotal. The M2 bolts for the horn and frame are supplied with each servo.</td>
 </tr>
 <tr>
-<td class="num">22</td><td>EX16</td><td>Consumable</td><td>Wearing straps / hook-and-loop</td>
+<td class="num">16</td><td>EX16</td><td>Consumable</td><td>Wearing straps / hook-and-loop</td>
 <td>Palm frame wearing support</td>
 <td class="num">1 set</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
-<td>Same 20&nbsp;USD hardware set.</td>
-</tr>
-<tr class="group-start">
-<td class="num">23</td><td>System</td><td>Electronics</td><td>USB hub</td>
-<td>Connects both controller boards to a single host</td>
-<td class="num">1</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
-<td>Model to be selected.</td>
-</tr>
-<tr>
-<td class="num">24</td><td>System</td><td>Tools</td><td>Assembly tools and consumables</td>
-<td>Screwdrivers, heat gun, cable ties, tape</td>
-<td class="num">1 set</td><td class="num muted">&mdash;</td><td class="num muted">&mdash;</td><td class="muted">Local supplier</td>
-<td>Not required if the lab already has these tools.</td>
+<td>Standard item bought locally and not counted in the subtotal.</td>
 </tr>
 </tbody>
 <tfoot>
@@ -489,25 +441,25 @@
 <td colspan="5">GX16 reference subtotal</td>
 <td class="num">16 actuators</td>
 <td class="num"></td>
-<td class="num">733.38</td>
+<td class="num">714</td>
 <td colspan="2"></td>
 </tr>
 <tr>
 <td colspan="5">EX16 reference subtotal</td>
 <td class="num">16 actuators</td>
 <td class="num"></td>
-<td class="num">653.38</td>
+<td class="num">634</td>
 <td colspan="2"></td>
 </tr>
 <tr>
 <td colspan="5">Complete hand&ndash;glove system</td>
 <td class="num">32 actuators</td>
 <td class="num"></td>
-<td class="num">1,386.76</td>
+<td class="num">1,348</td>
 <td colspan="2"></td>
 </tr>
 <tr>
-<td colspan="10" class="plain muted">The controller, power supply, U2D2 and hub rows carry current store prices; the appendix lists those items as one 30&nbsp;USD electronics set per device, so these subtotals are above the appendix figures. Cables are not listed, because every servo ships with one. Fasteners, bearings, inserts and springs are still priced as one 20&nbsp;USD set per device, and rows marked &mdash; are counted inside their set.</td>
+<td colspan="10" class="plain muted">The controller, power supply, U2D2 and servo hub rows carry current store prices, rounded to the nearest US dollar; the appendix lists those items as one 30&nbsp;USD electronics set per device, so these subtotals are above the appendix figures. Cables are not listed: every servo ships with one, the power hub board set adds its own, and the host USB cable is a standard item. Rows marked &mdash; are fasteners and consumables bought locally, and they are not counted in the subtotals.</td>
 </tr>
 </tfoot>
 </table>
@@ -516,10 +468,11 @@
 <h2>Where to buy<a class="headerlink" href="#where-to-buy" title="Link to this heading">¶</a></h2>
 <ul>
 <li><a href="https://robotis.us/">ROBOTIS</a> is the manufacturer of the Dynamixel actuators, the OpenRB-150 controller, the U2D2 interface and the X3P cables; the Source column links to the corresponding store page. Regional distributors stock the same parts.</li>
-<li>Each XL330 and XC330 unit ships with one Robot Cable-X3P 180&nbsp;mm and the M2 bolts for the horn and frame, so the servo count already covers most of the cabling and small fasteners.</li>
+<li>Each XL330 and XC330 unit ships with one Robot Cable-X3P 180&nbsp;mm and the M2 bolts for the horn and frame, so the servo count covers the cabling and most of the small fasteners. The host USB cable is a standard item available locally.</li>
 <li>The 12&nbsp;V supply is a free-voltage unit (100&ndash;260&nbsp;V AC); the AC cord type depends on the region.</li>
-<li>Bearings, screws, heat-set inserts, springs, straps and filament are standard hardware items and are best bought from a local distributor, where the exact type can be matched to the mechanical drawings.</li>
-<li>Store prices are current selling prices. The controller, power supply, U2D2 and hub rows use store prices in this table; the remaining reference values follow the paper appendix.</li>
+<li>Screws, straps and filament are standard items and are best bought from a local distributor, where the exact type can be matched to the mechanical drawings.</li>
+<li>The structural parts are printed in-house. A Bambu Lab FDM printer is recommended for them; the CAD files and the per-part list are on the <a href="mechanical-design.html">mechanical file</a> page.</li>
+<li>Store prices are current selling prices. The controller, power supply, U2D2 and servo hub rows use store prices in this table; the remaining reference values follow the paper appendix.</li>
 </ul>
 
 <h2>Quantity notes<a class="headerlink" href="#quantity-notes" title="Link to this heading">¶</a></h2>
@@ -527,7 +480,7 @@
 <li>GX16 uses 15&nbsp;XL330-M288-T servos at the finger joints and one metal-geared XC330-M288-T at the palm lateral-swing joint, which carries the additional torque of moving the palm and all four fingers.</li>
 <li>EX16 uses 16&nbsp;XL330-M077-T servos, four per finger module. The lower reduction ratio keeps transmission friction and back-driving resistance low while the operator moves their fingers.</li>
 <li>A complete hand&ndash;glove system therefore uses 32&nbsp;actuators: 15&nbsp;XL330-M288-T, one XC330-M288-T and 16&nbsp;XL330-M077-T. One spare of each of the two XL330 types brings the order to 34&nbsp;actuators.</li>
-<li>No separate cables are listed: every XL330 and XC330 ships with one Robot Cable-X3P 180&nbsp;mm, and the power hub board set adds a 100&nbsp;mm X3P and X4P cable.</li>
+<li>No separate cables are listed: every XL330 and XC330 ships with one Robot Cable-X3P 180&nbsp;mm, the power hub board set adds a 100&nbsp;mm X3P and X4P cable, and the host USB cable is a standard local item.</li>
 </ul>
 
 <h2>Cost summary<a class="headerlink" href="#cost-summary" title="Link to this heading">¶</a></h2>
@@ -537,11 +490,11 @@
 <tr><th>Device</th><th class="num">Parts cost (USD)</th><th>Scope</th></tr>
 </thead>
 <tbody>
-<tr><td>GX16 dexterous hand</td><td class="num">733.38</td><td>16 actuators, controller, electronics, printed parts, hardware</td></tr>
-<tr><td>EX16 exoskeleton glove</td><td class="num">653.38</td><td>16 actuators, controller, electronics, printed parts, hardware</td></tr>
+<tr><td>GX16 dexterous hand</td><td class="num">714</td><td>16 actuators, controller, electronics, printed parts, hardware</td></tr>
+<tr><td>EX16 exoskeleton glove</td><td class="num">634</td><td>16 actuators, controller, electronics, printed parts, hardware</td></tr>
 </tbody>
 <tfoot>
-<tr><td>Complete hand&ndash;glove system</td><td class="num">1,386.76</td><td>Parts only, excluding tax and shipping</td></tr>
+<tr><td>Complete hand&ndash;glove system</td><td class="num">1,348</td><td>Parts only, excluding tax and shipping</td></tr>
 </tfoot>
 </table>
 </div>

@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark">
         <link rel="prefetch" href="../_static/gx16.png" as="image">
 
-        <title>Mechanical Design Files - GEXPRO</title>
+        <title>Mechanical Files - GEXPRO</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -131,6 +131,45 @@
     font-size: var(--font-size--small--2, 0.8125rem);
     padding-top: 0.5rem;
     text-align: left;
+  }
+  /* Model preview gallery. */
+  .part-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    gap: 0.75rem;
+    margin: 0.75rem 0 1.5rem;
+  }
+  figure.part {
+    margin: 0;
+    padding: 0;
+  }
+  figure.part a {
+    display: block;
+    padding: 0.3rem;
+    border: 1px solid var(--color-background-border, #e7e7e9);
+    border-radius: 0.25rem;
+    background: var(--color-background-secondary, #fafafa);
+  }
+  figure.part img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  figure.part figcaption {
+    margin-top: 0.3rem;
+    font-size: var(--font-size--small--2, 0.8125rem);
+    line-height: 1.35;
+  }
+  figure.part .part-name {
+    display: block;
+    font-family: var(--font-stack--monospace, monospace);
+    font-size: 0.75rem;
+    overflow-wrap: anywhere;
+  }
+  figure.part .part-size {
+    display: block;
+    color: var(--color-foreground-muted, #6b6f76);
+    font-variant-numeric: tabular-nums;
   }
 </style></head>
   <body>
@@ -272,9 +311,9 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="#">Hardware</a><input checked aria-label="Toggle navigation of Hardware" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="#">Circuit Design</a></li>
-<li class="toctree-l2 current-page"><a class="reference internal" href="mechanical-design.html">Mechanical Design</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bom.html">Bill of Materials</a></li>
+<li class="toctree-l2 current-page"><a class="reference internal" href="mechanical-design.html">Mechanical File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#">Circuit File</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="#">Assemble Tutorials</a><input aria-label="Toggle navigation of Assemble Tutorials" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -313,7 +352,7 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="mechanical-design">
-<h1>Mechanical Design Files<a class="headerlink" href="#mechanical-design" title="Link to this heading">¶</a></h1>
+<h1>Mechanical Files<a class="headerlink" href="#mechanical-design" title="Link to this heading">¶</a></h1>
 <div class="notice">
 <p>These CAD files describe the current build of the GX16 hand and the EX16 glove. The parts are revised as the design changes, so download the latest archive before starting a new build.</p>
 </div>
@@ -328,26 +367,123 @@
 <tbody>
 <tr>
 <td>GX16 dexterous hand</td>
-<td class="src"><a href="GX16%20STL%20file.zip" download>GX16 STL file.zip</a></td>
-<td class="num">3.8 MB</td>
+<td class="src"><a href="GX16%20STEP%20file.zip" download>GX16 STEP file.zip</a></td>
+<td class="num">3.7 MB</td>
 <td>26 STEP files: palm and palm joints, thumb, index, middle and ring fingers, the palm lateral-swing links and motor mount, flange, control-box shells, silicone fingertip moulds and tactile-fingertip connectors</td>
 </tr>
 <tr>
 <td>EX16 exoskeleton glove</td>
-<td class="src"><a href="EX16%20STL%20file.zip" download>EX16 STL file.zip</a></td>
-<td class="num">2.4 MB</td>
+<td class="src"><a href="EX16%20STEP%20file.zip" download>EX16 STEP file.zip</a></td>
+<td class="num">2.3 MB</td>
 <td>24 STEP files: the glove base and the index, middle, ring and thumb modules, each broken down into its joint links</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>The sizes are the compressed download sizes; the unpacked archives are about 18&nbsp;MB (GX16) and 16&nbsp;MB (EX16). Both files were last updated on 17 September 2026.</p>
+<p>The sizes are the compressed download sizes; the unpacked archives are about 18&nbsp;MB (GX16) and 16&nbsp;MB (EX16). Both files were last updated on 18 September 2026.</p>
+
+<h2>Model previews<a class="headerlink" href="#model-previews" title="Link to this heading">¶</a></h2>
+<p>Every STEP file in the two archives is rendered below straight from the CAD geometry, so the previews show what the downloads contain. Parts are grouped by file name, and each caption gives the file name and the bounding box of the solid in millimetres, measured on the model. Click a thumbnail to open the full-size render.</p>
+<p>Structural parts are shaded in a neutral grey and the silicone fingertip parts in the pink used elsewhere on this site; the shading is a rendering style and carries no material or print information. Both archives store each part on its own, without assembly transforms, so the parts are shown individually.</p>
+
+<!-- GX16 dexterous hand -->
+<h3>GX16 dexterous hand</h3>
+<h4>Palm and palm joints</h4>
+<div class="part-grid">
+<figure class="part"><a href="../_static/models/gx16/parts/palm1.png"><img src="../_static/models/gx16/parts/palm1.thumb.png" alt="Palm1.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Palm1.STEP</span><span class="part-size">86.3 × 84 × 29.5 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/palm2.png"><img src="../_static/models/gx16/parts/palm2.thumb.png" alt="Palm2.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Palm2.STEP</span><span class="part-size">33.9 × 84 × 29.5 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/palm3.png"><img src="../_static/models/gx16/parts/palm3.thumb.png" alt="Palm3.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Palm3.STEP</span><span class="part-size">102.1 × 84 × 10.5 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/palm4.png"><img src="../_static/models/gx16/parts/palm4.thumb.png" alt="Palm4.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Palm4.STEP</span><span class="part-size">33.9 × 82 × 18.9 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/palm_joint1.png"><img src="../_static/models/gx16/parts/palm_joint1.thumb.png" alt="Palm_Joint1.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Palm_Joint1.STEP</span><span class="part-size">34 × 28.6 × 7 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/palm_joint2.png"><img src="../_static/models/gx16/parts/palm_joint2.thumb.png" alt="Palm_Joint2.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Palm_Joint2.STEP</span><span class="part-size">35.5 × 35 × 21 mm</span></figcaption></figure>
+</div>
+<h4>Thumb</h4>
+<div class="part-grid">
+<figure class="part"><a href="../_static/models/gx16/parts/thumb1.png"><img src="../_static/models/gx16/parts/thumb1.thumb.png" alt="Thumb1.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Thumb1.STEP</span><span class="part-size">36.5 × 28.6 × 17 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/thumb2.png"><img src="../_static/models/gx16/parts/thumb2.thumb.png" alt="Thumb2.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Thumb2.STEP</span><span class="part-size">52 × 35 × 33 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/thumb_connect_with_line.png"><img src="../_static/models/gx16/parts/thumb_connect_with_line.thumb.png" alt="thumb_connect_with_line.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">thumb_connect_with_line.STEP</span><span class="part-size">22 × 48.1 × 6.3 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/thumb_line_lid.png"><img src="../_static/models/gx16/parts/thumb_line_lid.thumb.png" alt="thumb_line_lid.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">thumb_line_lid.STEP</span><span class="part-size">26.3 × 27 × 7.5 mm</span></figcaption></figure>
+</div>
+<h4>Fingers and finger links</h4>
+<div class="part-grid">
+<figure class="part"><a href="../_static/models/gx16/parts/finger1.png"><img src="../_static/models/gx16/parts/finger1.thumb.png" alt="Finger1.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Finger1.STEP</span><span class="part-size">35 × 46 × 35 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/finger2.png"><img src="../_static/models/gx16/parts/finger2.thumb.png" alt="Finger2.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Finger2.STEP</span><span class="part-size">34.6 × 25 × 20 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/finger3.png"><img src="../_static/models/gx16/parts/finger3.thumb.png" alt="Finger3.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Finger3.STEP</span><span class="part-size">28.6 × 7 × 34 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/index_connect_with_line.png"><img src="../_static/models/gx16/parts/index_connect_with_line.thumb.png" alt="Index_connect_with_line.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Index_connect_with_line.STEP</span><span class="part-size">6.3 × 30.5 × 22 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/ring2.png"><img src="../_static/models/gx16/parts/ring2.thumb.png" alt="Ring2.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Ring2.STEP</span><span class="part-size">35 × 28.5 × 20 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/middle_connect_with_line.png"><img src="../_static/models/gx16/parts/middle_connect_with_line.thumb.png" alt="middle_connect_with_line.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">middle_connect_with_line.STEP</span><span class="part-size">6.3 × 30.5 × 22 mm</span></figcaption></figure>
+</div>
+<h4>Motor mount and flange</h4>
+<div class="part-grid">
+<figure class="part"><a href="../_static/models/gx16/parts/flange.png"><img src="../_static/models/gx16/parts/flange.thumb.png" alt="Flange.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Flange.STEP</span><span class="part-size">60.1 × 34 × 70.1 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/motor_connect.png"><img src="../_static/models/gx16/parts/motor_connect.thumb.png" alt="motor_connect.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">motor_connect.STEP</span><span class="part-size">20 × 26 × 3 mm</span></figcaption></figure>
+</div>
+<h4>Control-box shells</h4>
+<div class="part-grid">
+<figure class="part"><a href="../_static/models/gx16/parts/control_box0.png"><img src="../_static/models/gx16/parts/control_box0.thumb.png" alt="Control_box0.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Control_box0.STEP</span><span class="part-size">74.1 × 60 × 21.5 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/control_box1.png"><img src="../_static/models/gx16/parts/control_box1.thumb.png" alt="Control_box1.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Control_box1.STEP</span><span class="part-size">60 × 60 × 2.5 mm</span></figcaption></figure>
+</div>
+<h4>Silicone fingertips and moulds</h4>
+<div class="part-grid">
+<figure class="part"><a href="../_static/models/gx16/parts/ring_fingertip.png"><img src="../_static/models/gx16/parts/ring_fingertip.thumb.png" alt="Ring_fingertip.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Ring_fingertip.STEP</span><span class="part-size">30.3 × 49.8 × 22.2 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/fingertips.png"><img src="../_static/models/gx16/parts/fingertips.thumb.png" alt="fingertips.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">fingertips.STEP</span><span class="part-size">34.6 × 66.6 × 24.3 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/mold_px6ax_0.png"><img src="../_static/models/gx16/parts/mold_px6ax_0.thumb.png" alt="mold px6ax_0.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">mold px6ax_0.STEP</span><span class="part-size">110.1 × 114.5 × 32.8 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/mold_px6ax_1.png"><img src="../_static/models/gx16/parts/mold_px6ax_1.thumb.png" alt="mold px6ax_1.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">mold px6ax_1.STEP</span><span class="part-size">109.7 × 114.1 × 20.8 mm</span></figcaption></figure>
+</div>
+<h4>Tactile-fingertip connectors</h4>
+<div class="part-grid">
+<figure class="part"><a href="../_static/models/gx16/parts/index_tactile_connector.png"><img src="../_static/models/gx16/parts/index_tactile_connector.thumb.png" alt="Index_tactile_connector.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Index_tactile_connector.STEP</span><span class="part-size">30.3 × 49.8 × 27.3 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/gx16/parts/ring_tactile_connector.png"><img src="../_static/models/gx16/parts/ring_tactile_connector.thumb.png" alt="Ring__tactile_connector.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">Ring__tactile_connector.STEP</span><span class="part-size">34.6 × 65.8 × 19.9 mm</span></figcaption></figure>
+</div>
+
+<!-- EX16 exoskeleton glove -->
+<h3>EX16 exoskeleton glove</h3>
+<h4>Glove base</h4>
+<div class="part-grid">
+<figure class="part"><a href="../_static/models/ex16/parts/base.png"><img src="../_static/models/ex16/parts/base.thumb.png" alt="base.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">base.STEP</span><span class="part-size">100.7 × 82.9 × 138.6 mm</span></figcaption></figure>
+</div>
+<h4>Index module</h4>
+<div class="part-grid">
+<figure class="part"><a href="../_static/models/ex16/parts/index_1.png"><img src="../_static/models/ex16/parts/index_1.thumb.png" alt="index_1.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">index_1.STEP</span><span class="part-size">39.2 × 35.2 × 28.6 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/index_2.png"><img src="../_static/models/ex16/parts/index_2.thumb.png" alt="index_2.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">index_2.STEP</span><span class="part-size">24.1 × 20 × 24.1 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/index_3.png"><img src="../_static/models/ex16/parts/index_3.thumb.png" alt="index_3.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">index_3.STEP</span><span class="part-size">68.1 × 48.2 × 34.8 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/index_4.png"><img src="../_static/models/ex16/parts/index_4.thumb.png" alt="index_4.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">index_4.STEP</span><span class="part-size">60.6 × 48.5 × 32.8 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/index_5.png"><img src="../_static/models/ex16/parts/index_5.thumb.png" alt="index_5.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">index_5.STEP</span><span class="part-size">15.2 × 20 × 28.6 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/index_6.png"><img src="../_static/models/ex16/parts/index_6.thumb.png" alt="index_6.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">index_6.STEP</span><span class="part-size">34.4 × 26.7 × 21.5 mm</span></figcaption></figure>
+</div>
+<h4>Middle module</h4>
+<div class="part-grid">
+<figure class="part"><a href="../_static/models/ex16/parts/middle_1.png"><img src="../_static/models/ex16/parts/middle_1.thumb.png" alt="middle_1.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">middle_1.STEP</span><span class="part-size">19.5 × 27.4 × 20 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/middle_2.png"><img src="../_static/models/ex16/parts/middle_2.thumb.png" alt="middle_2.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">middle_2.STEP</span><span class="part-size">39.2 × 35.2 × 28.6 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/middle_3.png"><img src="../_static/models/ex16/parts/middle_3.thumb.png" alt="middle_3.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">middle_3.STEP</span><span class="part-size">68.1 × 48.2 × 34.8 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/middle_4.png"><img src="../_static/models/ex16/parts/middle_4.thumb.png" alt="middle_4.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">middle_4.STEP</span><span class="part-size">60.6 × 48.5 × 32.8 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/middle_5.png"><img src="../_static/models/ex16/parts/middle_5.thumb.png" alt="middle_5.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">middle_5.STEP</span><span class="part-size">15.2 × 20 × 28.6 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/middle_6.png"><img src="../_static/models/ex16/parts/middle_6.thumb.png" alt="middle_6.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">middle_6.STEP</span><span class="part-size">34.4 × 26.7 × 21.5 mm</span></figcaption></figure>
+</div>
+<h4>Ring module</h4>
+<div class="part-grid">
+<figure class="part"><a href="../_static/models/ex16/parts/ring_1.png"><img src="../_static/models/ex16/parts/ring_1.thumb.png" alt="ring_1.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">ring_1.STEP</span><span class="part-size">19.5 × 27.4 × 20 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/ring_2.png"><img src="../_static/models/ex16/parts/ring_2.thumb.png" alt="ring_2.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">ring_2.STEP</span><span class="part-size">39.2 × 35.2 × 28.6 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/ring_3.png"><img src="../_static/models/ex16/parts/ring_3.thumb.png" alt="ring_3.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">ring_3.STEP</span><span class="part-size">68.1 × 48.2 × 34.8 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/ring_4.png"><img src="../_static/models/ex16/parts/ring_4.thumb.png" alt="ring_4.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">ring_4.STEP</span><span class="part-size">60.6 × 48.5 × 32.8 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/ring_5.png"><img src="../_static/models/ex16/parts/ring_5.thumb.png" alt="ring_5.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">ring_5.STEP</span><span class="part-size">15.2 × 20 × 28.6 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/ring_6.png"><img src="../_static/models/ex16/parts/ring_6.thumb.png" alt="ring_6.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">ring_6.STEP</span><span class="part-size">34.4 × 26.7 × 21.5 mm</span></figcaption></figure>
+</div>
+<h4>Thumb module</h4>
+<div class="part-grid">
+<figure class="part"><a href="../_static/models/ex16/parts/thumb_1.png"><img src="../_static/models/ex16/parts/thumb_1.thumb.png" alt="thumb_1.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">thumb_1.STEP</span><span class="part-size">24.1 × 20 × 24.1 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/thumb_2.png"><img src="../_static/models/ex16/parts/thumb_2.thumb.png" alt="thumb_2.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">thumb_2.STEP</span><span class="part-size">36.6 × 36.3 × 36.6 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/thumb_3.png"><img src="../_static/models/ex16/parts/thumb_3.thumb.png" alt="thumb_3.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">thumb_3.STEP</span><span class="part-size">59.9 × 35 × 59.9 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/thumb_4.png"><img src="../_static/models/ex16/parts/thumb_4.thumb.png" alt="thumb_4.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">thumb_4.STEP</span><span class="part-size">49.5 × 32.8 × 58.8 mm</span></figcaption></figure>
+<figure class="part"><a href="../_static/models/ex16/parts/thumb_5.png"><img src="../_static/models/ex16/parts/thumb_5.thumb.png" alt="thumb_5.STEP rendered from the STEP file" loading="lazy"></a><figcaption><span class="part-name">thumb_5.STEP</span><span class="part-size">35.6 × 21.5 × 20.9 mm</span></figcaption></figure>
+</div>
 
 <h2>Using the files<a class="headerlink" href="#using-the-files" title="Link to this heading">¶</a></h2>
 <ul>
-<li>Each archive unpacks into a folder named <code>STL file</code>, which is the name of the original export folder; the files inside are STEP solids rather than meshes.</li>
+<li>Each archive unpacks into a folder named <code>STEP file</code> and holds one STEP file per part. The files are solids rather than meshes, so the archives are easier to edit than a mesh export.</li>
 <li>STEP is a CAD interchange format, so the parts can be imported into CAD software for editing, or exported as STL or 3MF meshes before slicing them for a printer.</li>
-<li>Models are in millimetres at the nominal design size. Bearings, screws and heat-set inserts are standard parts, and their sizes are listed in the bill of materials.</li>
+<li>Models are in millimetres at the nominal design size. Screws and the other standard parts are listed in the bill of materials.</li>
+<li>The structural parts are printed in-house; a Bambu Lab FDM printer is recommended for them.</li>
 <li>Print settings and step-by-step assembly illustrations are still being written and will be added to this page.</li>
 </ul>
 

@@ -25,5 +25,7 @@ node_modules/
 .env.local
 
 
-hardware/EX16 STL file
-hardware/GX16 STL file
+hardware/EX16 STEP file
+hardware/GX16 STEP file
+
+**/*.zip
